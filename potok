@@ -1,19 +1,32 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Solution {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        InputStream inStream = new FileInputStream(reader.readLine());
-        ArrayList<Integer> data = new ArrayList<>();
+        int [] array = null;
+       // FileReader inStream = null;
         ArrayList<Integer> chet = new ArrayList<>();
-        while (inStream.available() > 0){
-            data.add(inStream.read());
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String name = reader.readLine();
+           FileReader inStream = new FileReader(name);
+            array = inStream.lines().mapToInt(Integer::parseInt).toArray;
+            inStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        for (int i = 0; i <data.size() ; i++) {
-            if (data.get(i)% 2 ==0) chet.add(data.get(i));
+
+        for (int i = 0; i <array.length ; i++) {
+            if (array[i] % 2 ==0) chet.add(array[i]);
         }
         Collections.sort(chet);
         for (int i = 0; i <chet.size() ; i++) {
             System.out.println(chet.get(i));
         }
-        inStream.close();
+
     }
 }
