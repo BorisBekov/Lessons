@@ -25,10 +25,11 @@ public class Solution {
                 e.printStackTrace();
             }
         }
-        for (int i = 0; i <fileCon.size() ; i++) {
+        for (String aFileCon : fileCon) {
 
 
-            writer.write(fileCon.get(i));
+            writer.write(aFileCon + "\r\n");
+
         }
         writer.close();
     }
