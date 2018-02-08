@@ -9,16 +9,17 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String fileName = reader.readLine();
+        Writer writer = null;
         while (true) {
             try {
 
                 String fileCon = reader.readLine();
                 if (fileCon.contains("exit")) break;
+                writer = new BufferedWriter(new FileWriter(fileName));
 
-                File file = new File(fileName);
-                FileWriter fw = new FileWriter(fileCon);
-                BufferedWriter writer = new BufferedWriter(fw);
+
                 writer.write(fileCon);
+                //writer.flush();
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
