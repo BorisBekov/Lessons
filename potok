@@ -10,6 +10,10 @@ public class Solution {
         for (int i = 0; i <data.size() ; i++) {
             if (data.get(i)% 2 ==0) chet.add(data.get(i));
         }
-        System.out.println(Arrays.sort(chet));
+        Collections.sort(chet);
+        for (int i = 0; i <chet.size() ; i++) {
+            System.out.println(chet.get(i));
+        }
+        inStream.close();
     }
 }
