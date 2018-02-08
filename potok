@@ -1,0 +1,15 @@
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        InputStream inStream = new FileInputStream(reader.readLine());
+        ArrayList<Integer> data = new ArrayList<>();
+        ArrayList<Integer> chet = new ArrayList<>();
+        while (inStream.available() > 0){
+            data.add(inStream.read());
+        }
+        for (int i = 0; i <data.size() ; i++) {
+            if (data.get(i)% 2 ==0) chet.add(data.get(i));
+        }
+        System.out.println(Arrays.sort(chet));
+    }
+}
