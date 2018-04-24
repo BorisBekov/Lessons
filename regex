@@ -1,0 +1,35 @@
+package com.javarush.task.task19.task1908;
+
+/* 
+Выделяем числа
+*/
+
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String file1 = reader.readLine();
+        String file2 = reader.readLine();
+        BufferedReader fileReader = new BufferedReader(new FileReader(file1));
+        BufferedWriter fileWriter = new BufferedWriter(new FileWriter(file2));
+        //C:\prive\txt.txt
+        reader.close();
+        String str;
+        String[] strArr;
+        while ((str = fileReader.readLine())!=null){
+            str = str.replaceAll("\\D"," " );
+            str = str.replaceAll("\\s+"," " );
+
+             strArr =str.split("\\W\\d\\W");
+
+            for (String aStrArr : strArr) {
+                fileWriter.write(aStrArr + " ");
+
+            }
+        }
+        fileReader.close();
+        fileWriter.close();
+        }
+    }
+
